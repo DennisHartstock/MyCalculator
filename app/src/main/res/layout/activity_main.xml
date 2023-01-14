@@ -1,18 +1,351 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:id="@+id/tvScreen"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/holo_red_dark"
+        android:gravity="end|bottom"
+        android:padding="8dp"
+        android:textColor="@android:color/holo_orange_light"
+        android:textSize="32sp"
+        tools:text="12345,6789" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btnClear"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="clear"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="11sp"
+            tools:ignore="HardcodedText,NestedWeights,OnClick" />
+
+        <Button
+            android:id="@+id/btnLeft"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="left"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="11sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+        <Button
+            android:id="@+id/btnRight"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="right"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="11sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+        <Button
+            android:id="@+id/btnBackspace"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:padding="4dp"
+            android:text="backspace"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="11sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btn7"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="7"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText,NestedWeights,OnClick" />
+
+        <Button
+            android:id="@+id/btn8"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="8"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+        <Button
+            android:id="@+id/btn9"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="9"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+        <Button
+            android:id="@+id/btnDivide"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="/"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btn4"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="4"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText,NestedWeights,OnClick" />
+
+        <Button
+            android:id="@+id/btn5"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="5"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+        <Button
+            android:id="@+id/btn6"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="6"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+        <Button
+            android:id="@+id/btnMultiply"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="*"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btn1"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="1"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText,NestedWeights,OnClick" />
+
+        <Button
+            android:id="@+id/btn2"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="2"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+        <Button
+            android:id="@+id/btn3"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="3"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+        <Button
+            android:id="@+id/btnSubtract"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="-"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btn0"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="2"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="0"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText,NestedWeights,OnClick" />
+
+        <Button
+            android:id="@+id/btnComma"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text=","
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+        <Button
+            android:id="@+id/btnAdd"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="+"
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText, OnClick" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/btnEqual"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:backgroundTint="@android:color/holo_red_dark"
+            android:onClick="onClick"
+            android:text="="
+            android:textColor="@android:color/holo_orange_light"
+            android:textSize="24sp"
+            tools:ignore="HardcodedText,NestedWeights,OnClick" />
+    </LinearLayout>
+
+</LinearLayout>
