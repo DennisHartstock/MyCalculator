@@ -10,8 +10,9 @@ class MainActivity : AppCompatActivity() {
 
     private var tvScreen: TextView? = null
 
-    private var isLastDigit: Boolean = false
-    private var isLastComma: Boolean = false
+    private var isLastDigit = false
+    private var isLastComma = false
+    private var isNegative = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,8 +20,33 @@ class MainActivity : AppCompatActivity() {
         initViews()
     }
 
-    private fun initViews() {
-        tvScreen = findViewById(R.id.tvScreen)
+    fun onMathOperator(view: View) {
+        val mathOperator = ((view as Button).text)
+        tvScreen?.text?.let {
+            if (!isNegative && !isLastComma && !isLastDigit && mathOperator == "-") {
+                tvScreen?.append(mathOperator)
+                isNegative = true
+            }
+            if (isLastDigit && !isMathOperatorAdded(it.toString())) {
+                tvScreen?.append(" ")
+                tvScreen?.append(mathOperator)
+                tvScreen?.append(" ")
+                isLastDigit = false
+                isLastComma = false
+                isNegative = false
+            }
+        }
+    }
+
+    private fun isMathOperatorAdded(value: String): Boolean {
+        return if (value.startsWith("-")) {
+            false
+        } else {
+            value.contains("/")
+                    || value.contains("*")
+                    || value.contains("-")
+                    || value.contains("+")
+        }
     }
 
     fun onDigit(view: View) {
@@ -40,5 +66,9 @@ class MainActivity : AppCompatActivity() {
             isLastDigit = false
             isLastComma = true
         }
+    }
+
+    private fun initViews() {
+        tvScreen = findViewById(R.id.tvScreen)
     }
 }
