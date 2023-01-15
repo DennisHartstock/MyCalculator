@@ -10,6 +10,9 @@ class MainActivity : AppCompatActivity() {
 
     private var tvScreen: TextView? = null
 
+    private var isLastDigit: Boolean = false
+    private var isLastComma: Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -22,9 +25,20 @@ class MainActivity : AppCompatActivity() {
 
     fun onDigit(view: View) {
         tvScreen?.append((view as Button).text)
+        isLastDigit = true
     }
 
     fun onClear(view: View) {
         tvScreen?.text = ""
+        isLastDigit = false
+        isLastComma = false
+    }
+
+    fun onComma(view: View) {
+        if (isLastDigit && !isLastComma) {
+            tvScreen?.append((view as Button).text)
+            isLastDigit = false
+            isLastComma = true
+        }
     }
 }
