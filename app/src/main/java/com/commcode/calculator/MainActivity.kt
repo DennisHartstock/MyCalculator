@@ -24,10 +24,32 @@ class MainActivity : AppCompatActivity() {
         if (isLastDigit) {
             val tvScreenValue = tvScreen?.text.toString()
             try {
-                val splitValue = tvScreenValue.split(" - ")
-                val a = splitValue[0]
-                val b = splitValue[1]
-                tvScreen?.text = (a.toDouble() - b.toDouble()).toString()
+                val delimiter = if (tvScreenValue.contains(" / ")) {
+                    " / "
+                } else if (tvScreenValue.contains(" * ")) {
+                    " * "
+                } else if (tvScreenValue.contains(" + ")) {
+                    " + "
+                } else {
+                    " - "
+                }
+                val splitValue = tvScreenValue.split(delimiter)
+                val a = splitValue[0].toDouble()
+                val b = splitValue[1].toDouble()
+                when (delimiter) {
+                    " / " -> {
+                        tvScreen?.text = (a / b).toString()
+                    }
+                    " * " -> {
+                        tvScreen?.text = (a * b).toString()
+                    }
+                    " + " -> {
+                        (a + b).toString().also { tvScreen?.text = it }
+                    }
+                    else -> {
+                        tvScreen?.text = (a - b).toString()
+                    }
+                }
             } catch (e: ArithmeticException) {
                 e.printStackTrace()
             }
