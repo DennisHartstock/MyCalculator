@@ -270,15 +270,15 @@
             tools:ignore="HardcodedText,NestedWeights,OnClick" />
 
         <Button
-            android:id="@+id/btnComma"
+            android:id="@+id/btnDot"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_red_dark"
-            android:onClick="onComma"
-            android:text=","
+            android:onClick="onDot"
+            android:text="."
             android:textColor="@android:color/holo_orange_light"
             android:textSize="24sp"
             tools:ignore="HardcodedText, OnClick" />
@@ -313,7 +313,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
             android:backgroundTint="@android:color/holo_red_dark"
-            android:onClick="onDigit"
+            android:onClick="onEqual"
             android:text="="
             android:textColor="@android:color/holo_orange_light"
             android:textSize="24sp"
