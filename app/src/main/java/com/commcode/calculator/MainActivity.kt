@@ -20,6 +20,12 @@ class MainActivity : AppCompatActivity() {
         initViews()
     }
 
+    fun removeZeroAfterDot(result: String): String {
+        var value = result
+        if (result.endsWith(".0")) value = result.substring(0, result.length - 2)
+        return value
+    }
+
     fun onEqual(view: View) {
         if (isLastDigit) {
             val tvScreenValue = tvScreen?.text.toString()
@@ -38,16 +44,16 @@ class MainActivity : AppCompatActivity() {
                 val b = splitValue[1].toDouble()
                 when (delimiter) {
                     " / " -> {
-                        tvScreen?.text = (a / b).toString()
+                        tvScreen?.text = removeZeroAfterDot((a / b).toString())
                     }
                     " * " -> {
-                        tvScreen?.text = (a * b).toString()
+                        tvScreen?.text = removeZeroAfterDot((a * b).toString())
                     }
                     " + " -> {
-                        (a + b).toString().also { tvScreen?.text = it }
+                        tvScreen?.text = removeZeroAfterDot((a + b).toString())
                     }
                     else -> {
-                        tvScreen?.text = (a - b).toString()
+                        tvScreen?.text = removeZeroAfterDot((a - b).toString())
                     }
                 }
             } catch (e: ArithmeticException) {
