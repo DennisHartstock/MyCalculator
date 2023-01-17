@@ -20,7 +20,14 @@ class MainActivity : AppCompatActivity() {
         initViews()
     }
 
-    fun removeZeroAfterDot(result: String): String {
+    fun onBackSpace(view: View) {
+        val currentValue = tvScreen?.text.toString()
+        if (currentValue.isNotEmpty()) {
+            tvScreen?.text = currentValue.substring(0, currentValue.length - 1)
+        }
+    }
+
+    private fun removeZeroAfterDot(result: String): String {
         var value = result
         if (result.endsWith(".0")) value = result.substring(0, result.length - 2)
         return value
